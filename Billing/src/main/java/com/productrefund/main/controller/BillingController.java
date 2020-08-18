@@ -2,6 +2,7 @@ package com.productrefund.main.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,11 @@ public class BillingController {
 	@PostMapping("/addCREDIT_PAYBILL")
 	public Billing addCreditPaybill(@RequestBody Billing product) {
 		return service.saveBilling(product);
+	}
+	
+	@GetMapping("/getAllCREDIT_PAYBILL")
+	public List<Billing> getAllCREDIT_PAYBILL(){
+		return BillingService.getAll();
 	}
 
 	@PostMapping("/addCREDIT_PAYBILLs")

@@ -41,12 +41,29 @@ public class BillingService {
 		productrepo.deleteById(id);
 		return "Billing Deleted " + id;
 	}
+	
+	public String deleteBillingByID(int id) {
+		BillingRepository.deleteBillById(id);
+		return "Record deleted!!!";
+	}
 
 	public Billing updateBilling(Billing product) {
+		
 		Billing existingBilling = productrepo.findById(product.getId()).orElse(null);
+		
 		existingBilling.setAMOUNT(product.getAMOUNT());
+		
 		existingBilling.setCARD(product.getCARD());
+		
 		existingBilling.setPIN(product.getPIN());
+		
+		
+		
 		return productrepo.save(existingBilling);
+	}
+
+	public static List<Billing> getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
